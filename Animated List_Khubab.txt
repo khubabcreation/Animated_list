@@ -1,0 +1,65 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
+
+void main() {
+  runApp(const MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Flutter Demo',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+    );
+  }
+}
+
+class MyHomePage extends StatefulWidget {
+  const MyHomePage({Key? key, required this.title}) : super(key: key);
+
+  final String title;
+
+  @override
+  State<MyHomePage> createState() => _MyHomePageState();
+}
+
+class _MyHomePageState extends State<MyHomePage> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(widget.title),
+      ),
+      body: AnimationLimiter(
+          child: ListView.builder(
+        itemBuilder: (context, index) {
+          return AnimationConfiguration.staggeredList(
+              position: index,
+              duration: Duration(seconds: 1),
+              child: SlideAnimation(
+                verticalOffset: 100,
+                curve: Curves.linear,
+                child: FadeInAnimation(
+                    child: ListTile(
+                      leading: Icon(Icons.account_box),
+                      title: Text(
+                        'Contact $index',
+                        style: TextStyle(fontSize: 16),
+                      ),
+                      trailing: Icon(Icons.accessibility_sharp),
+                    ),
+                    curve: Curves.bounceOut,
+                    duration: Duration(seconds: 1)),
+              ));
+        },
+        itemCount: 100,
+      )),
+    );
+  }
+}

@@ -1,0 +1,46 @@
+  Padding(
+                padding: EdgeInsets.all(10),
+                child: Text(
+                  'Name',
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 20),
+                )),
+            //********** Now our text view has been started ************
+            TextFormField(
+              decoration: InputDecoration(
+                  filled: true,
+                  fillColor: Colors.white,
+                  hintText: 'Enter your Name'),
+            ),
+            Padding(
+                padding: EdgeInsets.all(10),
+                child: Text(
+                  'Email',
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 20),
+                )),
+            TextFormField(
+              decoration: InputDecoration(
+                  filled: true,
+                  fillColor: Colors.white,
+                  hintText: 'Enter your Email'),
+            ),
+            Padding(
+                padding: EdgeInsets.all(10),
+                child: Text(
+                  'Password',
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 20),
+                )),
+            TextFormField(
+              decoration: InputDecoration(
+                  filled: true,
+                  fillColor: Colors.white,
+                  hintText: 'Enter your Email'),
+            ),
